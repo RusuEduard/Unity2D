@@ -25,7 +25,7 @@ public class WallController : MonoBehaviour
             _passed = true;
         }
 
-        if (transform.position.x < -13f)
+        if (transform.position.x < 0f)
         {
             Destroy(gameObject);
         }
