@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WallController : MonoBehaviour
 {
-    private readonly float _speed = 2f;
+    private readonly float _speed = 4f;
     private bool _passed = false;
     private GameObject bird;
     private ScoreManager scoreManager;

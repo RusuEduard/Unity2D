@@ -8,6 +8,8 @@ public class BirdController : MonoBehaviour
     private Rigidbody2D _rb2D;
     private readonly float _jumpVelocity = 6.5f;
     private readonly float _fallMultiplyer = 2.5f;
+    [SerializeField]
+    GameController gameController;
 
 
     // Start is called before the first frame update
@@ -21,7 +23,6 @@ public class BirdController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            Debug.Log("Space");
             _rb2D.velocity = _jumpVelocity * Vector2.up;
         }
 
@@ -29,5 +30,10 @@ public class BirdController : MonoBehaviour
         {
             _rb2D.velocity += Vector2.up * Physics2D.gravity.y * (_fallMultiplyer - 1) * Time.deltaTime;
         }
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        gameController.GameOver();
     }
 }

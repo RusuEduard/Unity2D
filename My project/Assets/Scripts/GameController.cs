@@ -2,16 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WallSpawner : MonoBehaviour
+public class GameController : MonoBehaviour
 {
     [SerializeField]
     private WallController wallPrefab;
     [SerializeField]
     private ScoreManager scoreManager;
+    [SerializeField]
+    private GameOverScript gameOverController;
 
     // Start is called before the first frame update
     void Start()
     {
+        scoreManager.Score = 0;
         InvokeRepeating("SpawnWall", 0f, 3f);
     }
 
@@ -25,5 +28,10 @@ public class WallSpawner : MonoBehaviour
         var position = new Vector3(33f, Random.Range(-2f, 1f), 0);
         var wall =  Instantiate(wallPrefab, position, transform.rotation);
         wall.Initialize(scoreManager);
+    }
+
+    public void GameOver()
+    { 
+        gameOverController.Setup(scoreManager.Score);
     }
 }
