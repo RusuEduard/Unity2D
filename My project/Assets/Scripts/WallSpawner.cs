@@ -4,7 +4,10 @@ using UnityEngine;
 
 public class WallSpawner : MonoBehaviour
 {
-    public GameObject Wall;
+    [SerializeField]
+    private WallController wallPrefab;
+    [SerializeField]
+    private ScoreManager scoreManager;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +23,7 @@ public class WallSpawner : MonoBehaviour
     void SpawnWall()
     {
         var position = new Vector3(14f, Random.Range(-2f, 1f), 0);
-        Instantiate(Wall, position, transform.rotation);
+        var wall =  Instantiate(wallPrefab, position, transform.rotation);
+        wall.Initialize(scoreManager);
     }
 }
