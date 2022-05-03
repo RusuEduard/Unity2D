@@ -6,9 +6,8 @@ public class BirdController : MonoBehaviour
 {
 
     private Rigidbody2D _rb2D;
-    private Transform _transform;
-    [Range(1, 10)]
-    public float jumpVelocity;
+    private readonly float _jumpVelocity = 6.5f;
+    private readonly float _fallMultiplyer = 2.5f;
 
 
     // Start is called before the first frame update
@@ -23,9 +22,12 @@ public class BirdController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             Debug.Log("Space");
-            //_rb2D.AddForce(new Vector2(0f, 1f * _jumpForce), ForceMode2D.Impulse);
-            //transform.Translate(new Vector2(0, 1) * _jumpForce * Time.deltaTime); 
-            _rb2D.velocity = jumpVelocity * Vector2.up;
+            _rb2D.velocity = _jumpVelocity * Vector2.up;
+        }
+
+        if (_rb2D.velocity.y < 0)
+        {
+            _rb2D.velocity += Vector2.up * Physics2D.gravity.y * (_fallMultiplyer - 1) * Time.deltaTime;
         }
     }
 }
