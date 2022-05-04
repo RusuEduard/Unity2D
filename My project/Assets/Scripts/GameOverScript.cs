@@ -6,9 +6,10 @@ using UnityEngine.SceneManagement;
 
 public class GameOverScript : MonoBehaviour
 {
+    private float originalTimeScale = 1;
+
     [SerializeField]
     private Text pointsText;
-    private float originalTimeScale = 1;
     public void Setup(int score)
     {
         Time.timeScale = 0;

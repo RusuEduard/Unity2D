@@ -10,12 +10,19 @@ public class BirdController : MonoBehaviour
     private readonly float _fallMultiplyer = 2.5f;
     [SerializeField]
     GameController gameController;
+    private new SpriteRenderer renderer;
+    [Header("Sprite")]
+    [SerializeField]
+    private Sprite upSprite;
+    [SerializeField]
+    private Sprite downSprite;
 
 
     // Start is called before the first frame update
     void Start()
     {
         _rb2D = gameObject.GetComponent<Rigidbody2D>();
+        renderer = gameObject.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -23,11 +30,13 @@ public class BirdController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            renderer.sprite = upSprite;
             _rb2D.velocity = _jumpVelocity * Vector2.up;
         }
 
         if (_rb2D.velocity.y < 0)
         {
+            renderer.sprite = downSprite;
             _rb2D.velocity += Vector2.up * Physics2D.gravity.y * (_fallMultiplyer - 1) * Time.deltaTime;
         }
     }
