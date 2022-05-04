@@ -21,4 +21,10 @@ public class GameOverScript : MonoBehaviour
         Time.timeScale = originalTimeScale;
         SceneManager.LoadScene("Game");
     }
+
+    public void MainMenuButton()
+    {
+        Time.timeScale = originalTimeScale;
+        SceneManager.LoadScene("MainMenu");
+    }
 }
