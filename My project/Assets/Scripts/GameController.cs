@@ -25,7 +25,7 @@ public class GameController : MonoBehaviour
 
     void SpawnWall()
     {
-        var position = new Vector3(33f, Random.Range(-2f, 1f), 0);
+        var position = new Vector3(33f, Random.Range(-2.9f, 0.28f), 0);
         var wall =  Instantiate(wallPrefab, position, transform.rotation);
         wall.Initialize(scoreManager);
     }
