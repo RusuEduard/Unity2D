@@ -15,7 +15,7 @@ public class GameController : MonoBehaviour
     void Start()
     {
         scoreManager.Score = 0;
-        InvokeRepeating("SpawnWall", 0f, 3f);
+        InvokeRepeating("SpawnWall", 0f, 4f);
     }
 
     // Update is called once per frame
@@ -25,7 +25,7 @@ public class GameController : MonoBehaviour
 
     void SpawnWall()
     {
-        var position = new Vector3(33f, Random.Range(-2.9f, 0.28f), 0);
+        var position = new Vector3(170f, Random.Range(63f, 121f), 0);
         var wall =  Instantiate(wallPrefab, position, transform.rotation);
         wall.Initialize(scoreManager);
     }

@@ -12,6 +12,7 @@ public class GameOverScript : MonoBehaviour
     private Text pointsText;
     public void Setup(int score)
     {
+        originalTimeScale = Time.timeScale;
         Time.timeScale = 0;
         gameObject.SetActive(true);
         pointsText.text = "Score: " + score.ToString();

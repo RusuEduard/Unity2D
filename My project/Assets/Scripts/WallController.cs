@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class WallController : MonoBehaviour
 {
-    private readonly float _speed = 4f;
+    private readonly float _speed = 20f;
     private bool _passed = false;
     private GameObject bird;
     private ScoreManager scoreManager;
@@ -25,7 +25,7 @@ public class WallController : MonoBehaviour
             _passed = true;
         }
 
-        if (transform.position.x < 0f)
+        if (transform.position.x < -112f)
         {
             Destroy(gameObject);
         }

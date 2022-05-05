@@ -6,8 +6,8 @@ public class BirdController : MonoBehaviour
 {
 
     private Rigidbody2D _rb2D;
-    private readonly float _jumpVelocity = 6.5f;
-    private readonly float _fallMultiplyer = 2.5f;
+    private float _jumpVelocity = 20f;
+    private readonly float _fallMultiplyer = 2f;
     [SerializeField]
     GameController gameController;
     private new SpriteRenderer renderer;
@@ -31,7 +31,8 @@ public class BirdController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space))
         {
             renderer.sprite = upSprite;
-            _rb2D.velocity = _jumpVelocity * Vector2.up;
+
+            _rb2D.velocity = Vector2.up * _jumpVelocity;
         }
 
         if (_rb2D.velocity.y < 0)
