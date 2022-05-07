@@ -18,6 +18,7 @@ public class BirdController : MonoBehaviour
     private Sprite downSprite;
 
 
+
     // Start is called before the first frame update
     void Start()
     {
